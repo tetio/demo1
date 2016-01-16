@@ -14,7 +14,7 @@ module states {
             this.load.spritesheet("baddie", "assets/baddie.png", 32, 48);
             this.load.image("diamond", "assets/diamond.png");
             this.load.image("star", "assets/star.png");
-            this.load.image("platform", "assets/platform.png");
+            this.load.image("ground", "assets/platform.png");
             this.load.image("sky", "assets/sky.png");
             this.load.audio("vso", "assets/demo-vso.mp3");
 

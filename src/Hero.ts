@@ -3,15 +3,23 @@ module states {
     export class Hero extends Phaser.Sprite {
 
         cursors: Phaser.CursorKeys;
+        platforms: Platforms;
 
-        constructor(game: Phaser.Game, x: number, y: number) {
+
+        constructor(game: Phaser.Game, x: number, y: number, platforms: Platforms) {
             super(game, x, y, "hero", 0);
+            this.platforms = platforms
             this.anchor.setTo(0.5, 0);
             this.inputEnabled = true;
             this.input.enableDrag(true);
             this.events.onDragStop.add(this.onDragStop);
 
-            game.physics.arcade.enableBody(this);
+            this.game.physics.arcade.enable(this);
+
+            this.body.bounce.y = 0.2;
+            this.body.gravity.y = 300;
+            this.body.collideWorldBounds = true;
+
             game.add.existing(this);
 
             this.animations.add('left', [0, 1, 2, 3], 10, true);
@@ -31,6 +39,9 @@ module states {
             if (this.body.velocity.x != 0 || this.body.velocity.y != 0) {
                 console.log("Mv(" + this.body.position.x + ", " + this.body.position.y + ")");
             }
+
+            this.game.physics.arcade.collide(this, this.platforms);
+
         }
 
         onDragStop(currentSprite: Phaser.Sprite) {
