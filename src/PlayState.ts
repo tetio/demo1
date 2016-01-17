@@ -1,6 +1,7 @@
 /// <reference path="../lib/phaser.d.ts" />
 /// <reference path="Hero.ts"/>
 /// <reference path="Platforms.ts"/>
+/// <reference path="Letter.ts"/>
 module states {
 
     export class PlayState extends Phaser.State {
@@ -10,6 +11,7 @@ module states {
         platforms: Platforms;
         hero: Hero;
         cursors: Phaser.CursorKeys;
+        letterD: Letter;
 
         constructor() {
             super();
@@ -19,8 +21,10 @@ module states {
             this.background = this.add.sprite(0, 0, "sky");
             this.platforms = new Platforms(this.game);
             this.hero = new Hero(this.game, 250, 100);
+            this.letterD = new Letter(this.game, 400, 200, "D");
             this.cursors = this.game.input.keyboard.createCursorKeys();
             this.music = this.add.audio("vso", 1, false);
+            
             this.music.play();
         }
 
@@ -29,7 +33,7 @@ module states {
             this.hero.body.velocity.x = 0;
 
             if (this.cursors.up.isDown && this.hero.body.touching.down) {
-                this.hero.body.velocity.y = -150;
+                this.hero.body.velocity.y = -350;
             } else if (this.cursors.left.isDown) {
                 this.hero.body.velocity.x = -150;
                 this.hero.animations.play('left');
