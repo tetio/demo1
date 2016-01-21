@@ -26,7 +26,7 @@ module states {
         }
 
         onDragStop(currentSprite: Phaser.Sprite) {
-            console.log("D&D(" + currentSprite.position.x + ", " + currentSprite.position.y + ")");
+            console.log("Hero D&D(" + currentSprite.position.x + ", " + currentSprite.position.y + ")");
         }
     }
 }

@@ -7,6 +7,7 @@ var notify = require("gulp-notify");
 gulp.task("webserver", function () {
     connect.server({
         root: ["build"],
+        port: 8888,
         livereload: true
     });
 });

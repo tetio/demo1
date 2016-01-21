@@ -44,9 +44,9 @@ module states {
                 this.hero.frame = 4;
             }
 
-            if (this.hero.body.velocity.x != 0 || this.hero.body.velocity.y != 0) {
-                console.log("Mv(" + this.hero.body.position.x + ", " + this.hero.body.position.y + ")");
-            }
+            // if (this.hero.body.velocity.x != 0 || this.hero.body.velocity.y != 0) {
+            //     console.log("Hero(" + this.hero.body.position.x + ", " + this.hero.body.position.y + ")");
+            // }
 
         }
 
